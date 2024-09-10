@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 import csv
 
-path = r"C:\Users\rajup\Desktop\Image_Attendance"
+path = r"C:\Users\rajup\Desktop\FACE RECOGNITION BASED ATTENDANCE SYSTEM\Image_Attendance"
 images = []
 classNames = []
 myList = os.listdir(path)
@@ -28,7 +28,7 @@ def findEncodings(images):
     return encodeList
 
 def markAttendance(name):
-    with open(r'C:\Users\rajup\Desktop\Attendance.csv', 'a', newline='') as f:
+    with open(r"C:\Users\rajup\Desktop\FACE RECOGNITION BASED ATTENDANCE SYSTEM\Attendance.csv", 'a', newline='') as f:
         writer = csv.writer(f)
         now = datetime.now()
         dtString = now.strftime('%H:%M:%S')
@@ -37,12 +37,12 @@ def markAttendance(name):
         writer.writerow([name, dateString, dtString])
 
 def initializeCSV():
-    if not os.path.exists(r'C:\Users\rajup\Desktop\Attendance.csv'):
-        with open(r'C:\Users\rajup\Desktop\Attendance.csv', 'w', newline='') as f:
+    if not os.path.exists(r"C:\Users\rajup\Desktop\FACE RECOGNITION BASED ATTENDANCE SYSTEM\Attendance.csv"):
+        with open(r"C:\Users\rajup\Desktop\FACE RECOGNITION BASED ATTENDANCE SYSTEM\Attendance.csv", 'w', newline='') as f:
             writer = csv.writer(f)
             writer.writerow(['Name', 'Date', 'Time'])
     else:
-        with open(r'C:\Users\rajup\Desktop\Attendance.csv', 'a', newline='') as f:
+        with open(r"C:\Users\rajup\Desktop\FACE RECOGNITION BASED ATTENDANCE SYSTEM\Attendance.csv", 'a', newline='') as f:
             writer = csv.writer(f)
             writer.writerow([])  # Add a blank line for separation
             writer.writerow(['New Execution Start', datetime.now().strftime('%Y-%m-%d %H:%M:%S')])
